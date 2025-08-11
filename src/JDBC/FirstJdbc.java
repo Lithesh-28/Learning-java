@@ -10,7 +10,7 @@ public class FirstJdbc {
 
         Statement smt = con.createStatement();
 
-        sql = "insert into student values(101,'pavan','Karkala','general')";
+        sql = "insert into student values(104,'kiran','Karkala','general')";
         int result = smt.executeUpdate(sql);
         if (result > 0) {
             System.out.println("Student details added sucessfully");
