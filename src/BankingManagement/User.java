@@ -1,6 +1,5 @@
 package BankingManagement;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +7,8 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class User {
-    private Connection connection;
-    private Scanner scanner;
+    private final Connection connection;
+    private final Scanner scanner;
 
     public User(Connection connection, Scanner scanner){
         this.connection = connection;
@@ -36,12 +35,12 @@ public class User {
             preparedStatement.setString(3, password);
             int affectedRows = preparedStatement.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Registration Successfull!");
+                System.out.println("Registration Successful!!!!");
             } else {
                 System.out.println("Registration Failed!");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -63,7 +62,7 @@ public class User {
                 return null;
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return null;
     }
@@ -74,14 +73,9 @@ public class User {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                return true;
-            }
-            else{
-                return false;
-            }
+            return resultSet.next();
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return false;
     }
