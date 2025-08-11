@@ -7,15 +7,19 @@ public class EvenOrOdd {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a Number:  ");
         int n = sc.nextInt();
-        if (n != 0 && n >= 0) {
-            if (n % 2 == 0) {
-                System.out.println("The entered number is Even");
-            } else {
-                System.out.println("Entered value is odd");
-            }
-        } else {
-            System.out.println("Enter a valid number");
-        }
 
+        System.out.println("Even numbers from 0 to " + n + " is");
+        for (int i = 0; i <= n; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+        System.out.println("Odd numbers from 0 to " + n + " is");
+        for (int i = 0; i <= n; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i+" ");
+            }
+        }
     }
 }
