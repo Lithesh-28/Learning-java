@@ -3,8 +3,8 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class AccountManager {
-    private Connection connection;
-    private Scanner scanner;
+    private final Connection connection;
+    private final Scanner scanner;
     AccountManager(Connection connection, Scanner scanner){
         this.connection = connection;
         this.scanner = scanner;
@@ -48,7 +48,7 @@ public class AccountManager {
                 }
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         connection.setAutoCommit(true);
     }
@@ -94,7 +94,7 @@ public class AccountManager {
                 }
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         connection.setAutoCommit(true);
     }
@@ -156,7 +156,7 @@ public class AccountManager {
                 System.out.println("Invalid account number");
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         connection.setAutoCommit(true);
     }
@@ -177,7 +177,7 @@ public class AccountManager {
                 System.out.println("Invalid Pin!");
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

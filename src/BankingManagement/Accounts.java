@@ -4,8 +4,8 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Accounts {
-    private Connection connection;
-    private Scanner scanner;
+    private final Connection connection;
+    private final Scanner scanner;
     public Accounts(Connection connection, Scanner scanner){
         this.connection = connection;
         this.scanner = scanner;
@@ -41,7 +41,7 @@ public class Accounts {
                     throw new RuntimeException("Account Creation failed!!");
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
         throw new RuntimeException("Account Already Exist");
@@ -58,7 +58,7 @@ public class Accounts {
                 return resultSet.getLong("account_number");
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         throw new RuntimeException("Account Number Doesn't Exist!");
     }
@@ -76,7 +76,7 @@ public class Accounts {
                 return 10000100;
             }
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return 10000100;
     }
@@ -87,13 +87,9 @@ public class Accounts {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                return true;
-            }else{
-                return false;
-            }
+            return resultSet.next();
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return false;
 

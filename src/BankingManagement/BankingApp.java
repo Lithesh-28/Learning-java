@@ -3,7 +3,6 @@ package BankingManagement;
 import java.sql.*;
 import java.util.Scanner;
 
-import static java.lang.Class.forName;
 
 public class BankingApp {
     private static final String url = "jdbc:mysql://localhost:3306/bankingsystem";
@@ -102,7 +101,7 @@ public class BankingApp {
                 }
             }while(true);
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }
