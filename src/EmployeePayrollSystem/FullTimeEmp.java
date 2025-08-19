@@ -1,6 +1,7 @@
 package EmployeePayrollSystem;
 
 class FullTimeEmp extends Employee {
+
     private double monthlySalary;
 
     public FullTimeEmp(String name, int id, Department department, Address address, double monthlySalary) {
@@ -15,6 +16,6 @@ class FullTimeEmp extends Employee {
 
     @Override
     public double calculateBonus() {
-        return monthlySalary * 0.10; // 10% bonus
+        return monthlySalary * 0.10;
     }
 }

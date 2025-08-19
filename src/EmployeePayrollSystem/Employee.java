@@ -5,14 +5,13 @@ abstract class Employee implements payable {
     private int id;
     private Department department;
     private Address address;
-    private static int employeeCount = 0; // Static member
+
 
     public Employee(String name, int id, Department department, Address address) {
         this.name = name;
         this.id = id;
         this.department = department;
         this.address = address;
-        employeeCount++;
     }
 
     public String getName() {
@@ -27,11 +26,8 @@ abstract class Employee implements payable {
     public Address getAddress() {
         return address;
     }
-    public static int getEmployeeCount() {
-        return employeeCount;
-    }
 
-    abstract public double calculateSalary();
+   abstract public double calculateSalary();
 
     @Override
     public String toString() {

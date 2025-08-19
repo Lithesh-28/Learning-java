@@ -11,9 +11,6 @@ class PayRollSystem {
         empList.add(emp);
     }
 
-    public void addEmp(String name, int id, Department dept, Address address, double monthlySalary) {
-        empList.add(new FullTimeEmp(name, id, dept, address, monthlySalary));
-    }
 
     public void removeEmp(int id) {
         Employee empToRemove = null;
@@ -25,7 +22,7 @@ class PayRollSystem {
         }
         if (empToRemove != null) {
             empList.remove(empToRemove);
-            System.out.println("Employee removed successfully.");
+            System.out.println("Employee removed successfully !!!!");
         } else {
             System.out.println("No employee found with ID: " + id);
         }
@@ -45,6 +42,7 @@ class PayRollSystem {
         int count = 0;
         Iterator<Employee> it = empList.iterator();
         while(it.hasNext()){
+            it.next();
             count++;
 
         }

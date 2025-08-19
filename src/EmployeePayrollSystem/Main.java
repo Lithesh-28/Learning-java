@@ -1,7 +1,5 @@
 package EmployeePayrollSystem;
 
-import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Main {
@@ -9,13 +7,14 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         PayRollSystem prs = new PayRollSystem();
 
-        while (true) {
+        do {
             System.out.println("\n=== Employee Payroll System ===");
             System.out.println("1. Add Full-Time Employee");
             System.out.println("2. Add Part-Time Employee");
             System.out.println("3. Remove Employee");
             System.out.println("4. Display Employees");
-            System.out.println("5. Exit");
+            System.out.println("5. Number of employees");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();
@@ -38,7 +37,7 @@ public class Main {
                     double salaryFT = sc.nextDouble();
 
                     prs.addEmp(new FullTimeEmp(nameFT, idFT, deptFT, new Address(cityFT, stateFT), salaryFT));
-                    System.out.println("Full-Time Employee Added!");
+                    System.out.println("Full-Time Employee Added Successfully !!!!");
                     break;
 
                 case 2:
@@ -59,7 +58,7 @@ public class Main {
                     double rate = sc.nextDouble();
 
                     prs.addEmp(new PartTimeEmp(namePT, idPT, deptPT, new Address(cityPT, statePT), hours, rate));
-                    System.out.println("Part-Time Employee Added!");
+                    System.out.println("Part-Time Employee Added Successfully !!!");
                     break;
 
                 case 3:
@@ -73,12 +72,16 @@ public class Main {
                     break;
 
                 case 5:
+                    System.out.println("Number of employees are: "+prs.getEmployee());
+                    break;
+
+                case 6:
                     System.out.println("Exiting... Goodbye!");
                     return;
 
                 default:
                     System.out.println("Invalid choice! Try again.");
             }
-        }
+        }while(true);
     }
 }
