@@ -18,10 +18,10 @@ public class ExceptionDemo {
             else
                 res = i / j;
         } catch (ArithmeticException e){
-            res = i / 2;
+            float res1 = i / 2;
             System.out.println("Cannot divide by zero "+e);
         }finally {
-            System.out.println("default division output is: "+res);
+            System.out.println("division output is: "+res);
         }
     }
 }

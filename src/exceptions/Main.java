@@ -19,13 +19,12 @@ public class Main {
         a = sc.nextInt();
         b = sc.nextInt();
         try{
-
             if (b == 0)
                 throw new CustomException("cannot divide br zero");
             div = a/b;
         }catch (CustomException e){
-            div = a/3;
-            System.out.println("That's the default output"+e);
+            div = 0;
+            System.out.println(div);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
